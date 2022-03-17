@@ -15,7 +15,7 @@ public class NumeroRomanoControler {
 
     @GetMapping("/decimal-to-roman")
     @ResponseBody
-    public String pegaLivrosDoHiro(@RequestParam Integer valor) {
+    public String decimalToRoman(@RequestParam Integer valor) {
         return IntegerToRoman.prettyPrint(valor);
     }
 }
