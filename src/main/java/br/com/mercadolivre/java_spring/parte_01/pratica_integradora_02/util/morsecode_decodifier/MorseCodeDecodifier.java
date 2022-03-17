@@ -22,6 +22,7 @@ public class MorseCodeDecodifier {
                 .map(MorseWordTranslator::translate)
                 .collect(Collectors.toCollection(ArrayList::new));
 
-        return String.join("", decodedSentence);
+        // Junta cada palavra da frase
+        return String.join(" ", decodedSentence);
     }
 }
