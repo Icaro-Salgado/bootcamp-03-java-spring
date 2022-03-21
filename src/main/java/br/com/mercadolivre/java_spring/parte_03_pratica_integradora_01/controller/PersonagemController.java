@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.websocket.server.PathParam;
 import java.net.URI;
 import java.util.List;
 
@@ -29,6 +30,12 @@ public class PersonagemController {
     public ResponseEntity<PersonagemDTO> listaPersonagem(@PathVariable int id) {
         Personagem personagem = personagemService.find(id);
         return ResponseEntity.ok(new PersonagemDTO().convert(personagem));
+    }
+
+    @GetMapping("/personagens/find/{name}")
+    public ResponseEntity<List<PersonagemDTO>> listaPersonagem(@PathVariable String name) {
+        List<Personagem> personagem = personagemService.findByParcialName(name);
+        return ResponseEntity.ok(PersonagemDTO.convertToDTOList(personagem));
     }
 
     @PostMapping("/from-list")

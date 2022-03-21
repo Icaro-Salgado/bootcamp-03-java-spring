@@ -14,8 +14,7 @@ import java.util.stream.Collectors;
 public class PersonagemDTO {
     private String name, hair_color, skin_color, eye_color, birth_year, gender, homeworld, species;
 
-    // This will be translated to int later, it is better, because it can be posted as NA, so it would
-    // throw a JSON parse error
+    // This will be translated to int later, just to avoid String inputs
     private String height, mass;
 
 
