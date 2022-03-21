@@ -1,6 +1,5 @@
 package br.com.mercadolivre.java_spring.parte_02.pratica_integradora_02.controller;
 
-import br.com.mercadolivre.java_spring.parte_02.pratica_integradora_02.model.Person;
 import br.com.mercadolivre.java_spring.parte_02.pratica_integradora_02.serializer.AthleteDTO;
 import br.com.mercadolivre.java_spring.parte_02.pratica_integradora_02.model.Sport;
 import br.com.mercadolivre.java_spring.parte_02.pratica_integradora_02.service.AthletesService;
@@ -37,9 +36,4 @@ public class SportsController {
         return athleteService.list();
     }
 
-    @ExceptionHandler(NoSuchElementException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ResponseEntity<String> handleNoSuchElementFoundException(NoSuchElementException exception) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
-    }
 }
