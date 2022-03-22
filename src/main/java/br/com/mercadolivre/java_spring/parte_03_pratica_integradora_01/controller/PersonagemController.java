@@ -35,6 +35,7 @@ public class PersonagemController {
     @GetMapping("/personagens/find/{name}")
     public ResponseEntity<List<PersonagemDTO>> listaPersonagem(@PathVariable String name) {
         List<Personagem> personagem = personagemService.findByParcialName(name);
+        System.out.println(personagem);
         return ResponseEntity.ok(PersonagemDTO.convertToDTOList(personagem));
     }
 

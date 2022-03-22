@@ -1,6 +1,9 @@
 package br.com.mercadolivre.java_spring.parte_03_pratica_integradora_01.dto;
 
 import br.com.mercadolivre.java_spring.parte_03_pratica_integradora_01.model.Personagem;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,8 +14,11 @@ import java.util.stream.Collectors;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+//@JsonIgnoreProperties(value = {"skin_color"})
 public class PersonagemDTO {
-    private String name, hair_color, skin_color, eye_color, birth_year, gender, homeworld, species;
+    private String name, hair_color, gender, homeworld, species;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private String skin_color, eye_color, birth_year;
 
     // This will be translated to int later, just to avoid String inputs
     private String height, mass;
